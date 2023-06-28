@@ -1,12 +1,23 @@
-import { useState } from "react";
+import {useMemo, useState} from "react";
 import { CounterGroup } from "./CounterGroup";
 import { CounterSizeGenerator } from "./CounterSizeGenerator";
+import { CounterGroupSum } from "./CounterGroupSum";
 
 export function MultipleCounter() {
-  const [size, setSize] = useState(0)
+  const [counterList, setCounterList] = useState([])
+
+  const handleSizeChange = (size) => {
+    const list = size ? Array(size).fill(0) : [];
+    setCounterList(list)
+  }
+
+  const sum = useMemo(() => {
+    return counterList.reduce((sum, number) => sum + number, 0);
+  }, [counterList]);
 
   return <>
-    <CounterSizeGenerator size={size} onSizeChange={setSize}/>
-    <CounterGroup size={size}/>
+    <CounterSizeGenerator size={counterList.length} onSizeChange={handleSizeChange}/>
+    <CounterGroupSum sum={sum} />
+    <CounterGroup counterList={counterList} onChange={setCounterList}/>
   </>
 }
