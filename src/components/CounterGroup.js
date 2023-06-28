@@ -3,6 +3,8 @@ import {Counter} from "./Counter";
 export function CounterGroup({ counterList, onChange }) {
 
   function handleChange(index, value) {
+    // Updating Arrays in State
+    // https://react.dev/learn/updating-arrays-in-state
     const newCounterList = [...counterList]
     newCounterList[index] = value
     onChange(newCounterList)
