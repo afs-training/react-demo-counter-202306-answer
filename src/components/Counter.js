@@ -11,6 +11,8 @@ export function Counter(props) {
     setCount(count - 1)
   }
 
+  // responding-to-events
+  // https://react.dev/learn/responding-to-events
   return <div className="counter">
     <button onClick={increase}>+</button>
     {count}
