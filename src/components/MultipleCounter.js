@@ -11,6 +11,7 @@ export function MultipleCounter() {
     setCounterList(list)
   }
 
+  // https://react.dev/reference/react/useMemo
   const sum = useMemo(() => {
     return counterList.reduce((sum, number) => sum + number, 0);
   }, [counterList]);
