@@ -15,7 +15,7 @@ export function Counter(props) {
   // https://react.dev/learn/responding-to-events
   return <div className="counter">
     <button onClick={increase}>+</button>
-    {count}
+    <span className="count">{count}</span>
     <button onClick={decrease}>-</button>
   </div>;
 }
