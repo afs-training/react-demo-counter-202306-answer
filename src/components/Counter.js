@@ -10,7 +10,7 @@ export function Counter(props) {
 
   return <div className="counter">
     <button onClick={increase}>+</button>
-    {props.count}
+    <span className="count">{props.count}</span>
     <button onClick={decrease}>-</button>
   </div>;
 }
